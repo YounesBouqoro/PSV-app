@@ -26,7 +26,7 @@ In `.env.local` eintragen:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://DEIN-PROJEKT.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=DEIN-ANON-KEY
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_DEIN-KEY
 ```
 
 ## Supabase einrichten
