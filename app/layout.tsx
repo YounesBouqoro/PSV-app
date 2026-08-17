@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const basePath = process.env.GITHUB_ACTIONS === "true" ? "/PSV-app" : "";
+
 export const metadata: Metadata = {
   title: { default: "PSV Team-App", template: "%s · PSV Team-App" },
   description: "Termine, Kader und Mannschaftsorganisation beim PSV Düsseldorf.",
-  manifest: "/manifest.webmanifest",
+  manifest: `${basePath}/manifest.webmanifest`,
   other: { "codex-preview": "development" },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: `${basePath}/favicon.svg`, shortcut: `${basePath}/favicon.svg` },
 };
 
 export const viewport: Viewport = {

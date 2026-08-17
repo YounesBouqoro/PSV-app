@@ -3,6 +3,10 @@ import { ArrowLeft, CalendarDays, Clock3, MapPin, MessageSquareText, Shield, Use
 import { AppShell } from "@/components/app-shell";
 import { activeTeam, demoEvents, demoPlayers } from "@/lib/demo-data";
 
+export function generateStaticParams() {
+  return demoEvents.map(({ id }) => ({ id }));
+}
+
 export default async function EventDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const event = demoEvents.find((item) => item.id === id) ?? demoEvents[0];
