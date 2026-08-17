@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
+import { BrandLogo } from "@/components/brand-logo";
 import { demoEvents, demoStats, activeTeam } from "@/lib/demo-data";
 
 export default function Home() {
@@ -43,7 +44,7 @@ export default function Home() {
           </div>
           <div className="match-body">
             <div className="club-lockup">
-              <span className="club-crest">PSV</span>
+              <span className="club-crest club-crest--psv"><BrandLogo /></span>
               <span>{activeTeam.shortName}</span>
             </div>
             <div className="match-center">

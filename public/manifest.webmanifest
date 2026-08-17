@@ -4,7 +4,7 @@
   "description": "Termine, Kader und Mannschaftsorganisation beim PSV Düsseldorf.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f3f6fa",
-  "theme_color": "#07182c",
-  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+  "background_color": "#f3f6f1",
+  "theme_color": "#497b30",
+  "icons": [{ "src": "psv-logo.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any maskable" }]
 }

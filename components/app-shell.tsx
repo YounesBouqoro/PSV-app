@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CalendarDays, House, LogOut, Menu, Settings, Shield, Users } from "lucide-react";
+import { CalendarDays, House, LogOut, Menu, Settings, Users } from "lucide-react";
 import { useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 
 const navItems = [
   { href: "/", label: "Übersicht", icon: House },
@@ -19,7 +20,7 @@ export function AppShell({ children, admin = false }: { children: React.ReactNod
     <div className="app-layout">
       <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
         <div className="brand">
-          <span className="brand-mark"><Shield size={24} strokeWidth={2.4} /></span>
+          <span className="brand-mark"><BrandLogo /></span>
           <span><strong>PSV</strong><small>TEAM-APP</small></span>
         </div>
         <nav className="side-nav" aria-label="Hauptnavigation">
@@ -39,7 +40,7 @@ export function AppShell({ children, admin = false }: { children: React.ReactNod
       </aside>
       <div className="main-column">
         <header className="mobile-header">
-          <div className="brand"><span className="brand-mark"><Shield size={21} /></span><strong>PSV TEAM-APP</strong></div>
+          <div className="brand"><span className="brand-mark"><BrandLogo /></span><strong>PSV TEAM-APP</strong></div>
           <button onClick={() => setOpen(!open)} aria-label="Menü öffnen"><Menu size={24} /></button>
         </header>
         <main className="content">{children}</main>

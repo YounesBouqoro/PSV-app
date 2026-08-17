@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: "Termine, Kader und Mannschaftsorganisation beim PSV Düsseldorf.",
   manifest: `${basePath}/manifest.webmanifest`,
   other: { "codex-preview": "development" },
-  icons: { icon: `${basePath}/favicon.svg`, shortcut: `${basePath}/favicon.svg` },
+  icons: { icon: `${basePath}/psv-logo.png`, shortcut: `${basePath}/psv-logo.png`, apple: `${basePath}/psv-logo.png` },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07182c",
+  themeColor: "#497b30",
   width: "device-width",
   initialScale: 1,
 };
