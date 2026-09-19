@@ -1,10 +1,9 @@
 {
-  "name": "PSV Team-App",
+  "name": "PSV Team Manager",
   "short_name": "PSV Team",
-  "description": "Termine, Kader und Mannschaftsorganisation beim PSV Düsseldorf.",
-  "start_url": "./",
+  "start_url": "/dashboard",
   "display": "standalone",
-  "background_color": "#f3f6f1",
-  "theme_color": "#497b30",
-  "icons": [{ "src": "psv-logo.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any maskable" }]
+  "background_color": "#f5f7f4",
+  "theme_color": "#123524",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
 }

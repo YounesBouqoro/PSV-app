@@ -1,52 +1,31 @@
-# PSV Team-App
+# PSV Team Manager
 
-Web-App für Termine, Kader, Anwesenheiten und rollenbasierte Mannschaftsverwaltung beim PSV Düsseldorf.
+Komplett neu aufgebaute Team-Management-App für den PSV Düsseldorf.
 
-## Aktueller MVP
+## Funktionen
 
-- responsive Spieleransicht mit kommenden Trainings und Spielen
-- Spielansicht mit Treffpunkt, Anstoß, Ort, Trainerhinweisen und Kader
-- Trainerbereich mit Terminübersicht, Spielerstatus und Teamkontext
-- Formular für Spiele und Trainings inklusive Kaderauswahl
-- wiederkehrender Trainingsplan für Montag, Mittwoch und Freitag
-- Supabase Magic-Link-Login
-- Datenmodell für mehrere Mannschaften und Rollen pro Team
-- Row-Level-Security für Trainer-, Spieler- und Betrachterrechte
-- Demo-Modus ohne Datenbankverbindung
+- mehrere Mannschaften verwalten und wechseln
+- Spieler und Kader pflegen
+- Trainings und Spiele planen
+- Zu-/Absagen und Anwesenheiten verwalten
+- Spieltagskader nominieren
+- WhatsApp-Spielinfo direkt aus einem Termin erzeugen
+- Trainingsbeteiligung auswerten
+- responsive Nutzung auf Smartphone und Desktop
+- PWA-Grundlage für die Installation auf dem Homescreen
+
+## Technik
+
+- Next.js + TypeScript
+- Supabase Auth + Postgres + Row Level Security
+- GitHub als Codebasis
+- vorbereitet für Vercel Deployment
 
 ## Lokaler Start
 
-```bash
-npm install
-cp .env.example .env.local
-npm run dev
-```
+1. `.env.example` nach `.env.local` kopieren.
+2. Supabase URL und Publishable Key eintragen.
+3. `npm install`
+4. `npm run dev`
 
-In `.env.local` eintragen:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://DEIN-PROJEKT.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_DEIN-KEY
-```
-
-## Supabase einrichten
-
-1. Die Datei `supabase/migrations/202608170001_initial_schema.sql` im Supabase SQL Editor ausführen.
-2. In Supabase Authentication einen ersten Trainer-Benutzer anlegen oder per Magic Link registrieren.
-3. Den Benutzer einmalig als Besitzer der 2. Mannschaft zuordnen:
-
-```sql
-insert into public.team_memberships (team_id, user_id, role)
-select
-  '00000000-0000-0000-0000-000000000001',
-  id,
-  'owner'::public.team_role
-from auth.users
-where email = 'DEINE-TRAINER-EMAIL';
-```
-
-Die Migration legt bereits die Mannschaften `2. Mannschaft` und `C3` an. Weitere Benutzer erhalten ihre Rechte ausschließlich über `team_memberships`.
-
-## Datenschutz
-
-Die Excel-Bestandsliste wird nicht in das öffentliche Repository übernommen. Personenbezogene Daten werden erst nach aktivierter Supabase-Anmeldung und über einen kontrollierten Import eingespielt.
+Das verbundene Supabase-Projekt wurde für den Neustart vollständig neu strukturiert. Der erste bestehende Benutzer ist Owner der Startteams `C3` und `2. Mannschaft`.
