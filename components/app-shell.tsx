@@ -19,6 +19,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { user, memberships, activeTeam, role, setActiveTeamId } = useTeam();
   const active = (href: string) => pathname === href || (href !== "/dashboard" && pathname.startsWith(href));
+  const roleLabel = role === "main_admin" ? "Main Admin" : role === "owner" ? "Owner" : role === "admin" ? "Admin" : role === "trainer" ? "Trainer" : role === "player" ? "Spieler" : "Viewer";
   async function logout() { const supabase = getSupabase(); if (supabase) await supabase.auth.signOut(); router.replace("/login"); }
   return <div className="app-shell">
     <aside className="sidebar">
@@ -26,7 +27,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <nav className="side-nav">{nav.map(({ href, label, icon: Icon }) => <Link className={active(href) ? "active" : ""} href={href} key={href}><Icon size={18}/>{label}</Link>)}</nav>
       <div className="side-bottom">
         <div className="team-picker"><label>Aktive Mannschaft</label><select value={activeTeam.id} onChange={(e) => setActiveTeamId(e.target.value)}>{memberships.map((membership) => membership.teams && <option value={membership.team_id} key={membership.id}>{membership.teams.name}</option>)}</select></div>
-        <div className="user-box"><span className="user-copy"><strong>{user.user_metadata?.full_name || user.email || "Trainer"}</strong><span>{role} · {activeTeam.short_name}</span></span><button className="icon-button" onClick={logout} aria-label="Abmelden"><LogOut size={17}/></button></div>
+        <div className="user-box"><span className="user-copy"><strong>{user.user_metadata?.full_name || user.email || "Trainer"}</strong><span>{roleLabel} · {activeTeam.short_name}</span></span><button className="icon-button" onClick={logout} aria-label="Abmelden"><LogOut size={17}/></button></div>
       </div>
     </aside>
     <div className="main">
