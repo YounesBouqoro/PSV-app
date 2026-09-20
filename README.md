@@ -29,3 +29,8 @@ Komplett neu aufgebaute Team-Management-App für den PSV Düsseldorf.
 4. `npm run dev`
 
 Das verbundene Supabase-Projekt wurde für den Neustart vollständig neu strukturiert. Der erste bestehende Benutzer ist Owner der Startteams `C3` und `2. Mannschaft`.
+
+
+## Vercel
+
+Das Repository ist direkt für Vercel vorbereitet. Next.js wird automatisch erkannt; die öffentlichen Supabase-Clientvariablen liegen in `.env.production`. Ein Vercel-Import des GitHub-Repositories reicht daher für den ersten Produktiv-Deploy aus.
