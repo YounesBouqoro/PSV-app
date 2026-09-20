@@ -1,4 +1,4 @@
-export type TeamRole = "owner" | "admin" | "trainer" | "player" | "viewer";
+export type TeamRole = "main_admin" | "owner" | "admin" | "trainer" | "player" | "viewer";
 export type EventType = "training" | "match" | "meeting";
 export type AttendanceStatus = "pending" | "available" | "unavailable" | "excused" | "injured";
 
