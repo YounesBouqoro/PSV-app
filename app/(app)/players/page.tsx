@@ -12,7 +12,7 @@ export default function PlayersPage() {
   const [search, setSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
-  const canManage = ["owner","admin","trainer"].includes(role);
+  const canManage = ["main_admin","owner","admin","trainer"].includes(role);
 
   async function load() { const supabase = getSupabase(); if (!supabase) return; const { data } = await supabase.from("players").select("*").eq("team_id", activeTeam.id).order("last_name").order("first_name"); setPlayers((data ?? []) as Player[]); }
   useEffect(() => { load(); }, [activeTeam.id]);
